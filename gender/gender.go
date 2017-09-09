@@ -6,6 +6,7 @@ import (
 
 type Gender int
 
+//go:generate jsonenums -type=Gender
 //go:generate stringer -type=Gender
 const (
 	Masculine Gender = iota
