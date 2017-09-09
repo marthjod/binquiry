@@ -11,6 +11,11 @@ import (
 	"strings"
 )
 
+func GetHeader(root *xmlpath.Node) (header string, found bool) {
+	qHeader := xmlpath.MustCompile("/div/h2")
+	return qHeader.String(root)
+}
+
 func Read(r io.Reader) (header string, wordType wordtype.WordType, xmlRoot *xmlpath.Node, err error) {
 	body, err := ioutil.ReadAll(r)
 	if err != nil {
@@ -24,10 +29,10 @@ func Read(r io.Reader) (header string, wordType wordtype.WordType, xmlRoot *xmlp
 	if err != nil {
 		return "", wordtype.Unknown, nil, err
 	}
-	qHeader := xmlpath.MustCompile("/div/h2")
-	header, ok := qHeader.String(root)
+
+	header, ok := GetHeader(root)
 	if !ok {
-		return "", wordtype.Unknown, nil, errors.New("cannot determine word type")
+		return "", wordtype.Unknown, nil, errors.New("cannot find header")
 	}
 
 	wordType = wordtype.GetWordType(header)
