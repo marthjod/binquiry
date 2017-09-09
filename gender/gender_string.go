@@ -4,9 +4,9 @@ package gender
 
 import "fmt"
 
-const _Gender_name = "KarlkynKvenkynHvorugkynUnknown"
+const _Gender_name = "MasculineFeminineNeuterUnknown"
 
-var _Gender_index = [...]uint8{0, 7, 14, 23, 30}
+var _Gender_index = [...]uint8{0, 9, 17, 23, 30}
 
 func (i Gender) String() string {
 	if i < 0 || i >= Gender(len(_Gender_index)-1) {

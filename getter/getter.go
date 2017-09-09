@@ -10,20 +10,20 @@ type Getter struct {
 	UrlPrefix string
 }
 
-func (g *Getter) queryWord(query string) string {
+func (g *Getter) WordQuery(word string) (query string) {
 	v := url.Values{}
-	v.Set("q", query)
+	v.Set("q", word)
 	return g.UrlPrefix + "?" + v.Encode()
 }
 
-func (g *Getter) queryId(id int) string {
+func (g *Getter) IdQuery(id int) (query string) {
 	return fmt.Sprintf("%s?id=%d", g.UrlPrefix, id)
 }
 
 func (g *Getter) GetWord(word string) (*http.Response, error) {
-	return http.Get(g.queryWord(word))
+	return http.Get(g.WordQuery(word))
 }
 
-func (g *Getter) getId(id int) (*http.Response, error) {
-	return http.Get(g.queryId(id))
+func (g *Getter) GetId(id int) (*http.Response, error) {
+	return http.Get(g.IdQuery(id))
 }

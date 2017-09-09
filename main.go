@@ -4,22 +4,25 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"github.com/marthjod/bingo/gender"
-	"github.com/marthjod/bingo/getter"
-	"github.com/marthjod/bingo/wordtype"
-	"gopkg.in/xmlpath.v2"
 	"html"
 	"io/ioutil"
 	"os"
 	"strings"
+
+	"github.com/marthjod/bingo/getter"
+	"github.com/marthjod/bingo/noun"
+	"github.com/marthjod/bingo/wordtype"
+	"gopkg.in/xmlpath.v2"
 )
 
 func main() {
 
 	var (
-		query     = flag.String("q", "orð", "Word to query.")
-		urlPrefix = flag.String("url-prefix", "http://dev.phpbin.ja.is/ajax_leit.php", "Query URL prefix.")
-		debug     = flag.Bool("debug", false, "Enable debug output.")
+		word         wordtype.Word
+		query        = flag.String("q", "orð", "Word to query.")
+		urlPrefix    = flag.String("url-prefix", "http://dev.phpbin.ja.is/ajax_leit.php", "Query URL prefix.")
+		debug        = flag.Bool("debug", false, "Enable debug output.")
+		outputFormat = flag.String("f", "json", "Output format (json|list|plain).")
 	)
 	flag.Parse()
 
@@ -47,23 +50,47 @@ func main() {
 
 	root, err := xmlpath.Parse(strings.NewReader(escaped))
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("Failed to parse response from %s: %s\n", g.WordQuery(*query), err)
 		os.Exit(1)
 	}
 
 	// have we got a paradigm or a multiple-choice interstitial?
 
-	header := xmlpath.MustCompile("/div/h2")
-	if h, ok := header.String(root); ok {
-		wordType := wordtype.GetWordType(h)
-		fmt.Printf("Word type: %s\n", wordType)
-		if wordType == wordtype.NounType {
-			fmt.Printf("Gender: %s\n", gender.GetGender(h))
+	qHeader := xmlpath.MustCompile("/div/h2")
+	header, ok := qHeader.String(root)
+	if !ok {
+		fmt.Println("Cannot determine word type")
+		os.Exit(1)
+	}
 
-			path := xmlpath.MustCompile("//tr/td[2]")
-			iter := path.Iter(root)
-			n := wordtype.ParseNoun(iter)
-			fmt.Printf("%s\n", n)
-		}
+	wordType := wordtype.GetWordType(header)
+	if *debug {
+		fmt.Println("Word type:", wordType)
+	}
+
+	switch wordType {
+	case wordtype.Noun:
+		path := xmlpath.MustCompile("//tr/td[2]")
+		word = noun.ParseNoun(header, path.Iter(root))
+	case wordtype.Adjective:
+		fmt.Println("Not implemented yet")
+		os.Exit(1)
+	case wordtype.Verb:
+		fmt.Println("Not implemented yet")
+		os.Exit(1)
+	default:
+		fmt.Println("Unknown word type")
+		os.Exit(1)
+	}
+
+	switch *outputFormat {
+	case "json":
+		fmt.Println(word.Json())
+	case "list":
+		fmt.Println(word.List())
+	case "plain":
+		fmt.Println(word)
+	default:
+		fmt.Println("Unknown output format", *outputFormat)
 	}
 }

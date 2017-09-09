@@ -4,16 +4,25 @@ import (
 	"strings"
 )
 
+type Word interface {
+	Json() string
+	List() []string
+}
+
 type WordType int
 
 //go:generate stringer -type=WordType
 const (
-	NounType WordType = iota
-	Unknown  WordType = iota
+	Noun      WordType = iota
+	Adjective WordType = iota
+	Verb      WordType = iota
+	Unknown   WordType = iota
 )
 
 var wordTypes = map[string]WordType{
-	"nafnorð": NounType,
+	"nafnorð":     Noun,
+	"lýsingarorð": Adjective,
+	"sagnorð":     Verb,
 }
 
 func GetWordType(header string) WordType {
