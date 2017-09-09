@@ -4,9 +4,9 @@ package wordtype
 
 import "fmt"
 
-const _WordType_name = "Noun"
+const _WordType_name = "NounTypeUnknown"
 
-var _WordType_index = [...]uint8{0, 4}
+var _WordType_index = [...]uint8{0, 8, 15}
 
 func (i WordType) String() string {
 	if i < 0 || i >= WordType(len(_WordType_index)-1) {

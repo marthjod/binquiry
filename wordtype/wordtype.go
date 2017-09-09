@@ -1,19 +1,19 @@
 package wordtype
 
 import (
-    "strings"
+	"strings"
 )
 
 type WordType int
 
 //go:generate stringer -type=WordType
 const (
-	Noun    WordType = iota
-	Unknown = iota
+	NounType WordType = iota
+	Unknown  WordType = iota
 )
 
 var wordTypes = map[string]WordType{
-	"nafnorð": Noun,
+	"nafnorð": NounType,
 }
 
 func GetWordType(header string) WordType {

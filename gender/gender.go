@@ -8,16 +8,16 @@ type Gender int
 
 //go:generate stringer -type=Gender
 const (
-	Masculine Gender = iota
-	Feminine  = iota
-	Neuter    = iota
-	Unknown   = iota
+	Karlkyn   Gender = iota
+	Kvenkyn   Gender = iota
+	Hvorugkyn Gender = iota
+	Unknown   Gender = iota
 )
 
 var genders = map[string]Gender{
-	"karlkyn":   Masculine,
-	"kvenkyn":   Feminine,
-	"hvorugkyn": Neuter,
+	"karlkyn":   Karlkyn,
+	"kvenkyn":   Kvenkyn,
+	"hvorugkyn": Hvorugkyn,
 }
 
 func GetGender(header string) Gender {
