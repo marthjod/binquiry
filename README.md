@@ -54,5 +54,6 @@ yields
 
 ## Dependencies
 
+- https://github.com/go-xmlpath/xmlpath
 - https://github.com/campoy/jsonenums
 
