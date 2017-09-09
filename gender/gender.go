@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// Gender is an enum representing grammatical gender.
 type Gender int
 
 //go:generate jsonenums -type=Gender
@@ -21,6 +22,7 @@ var genders = map[string]Gender{
 	"hvorugkyn": Neuter,
 }
 
+// GetGender determines a Gender type based on the input string.
 func GetGender(header string) Gender {
 	for k, v := range genders {
 		if strings.Contains(strings.ToLower(header), k) {

@@ -3,7 +3,7 @@
 
 [![Travis CI Build Status](https://travis-ci.org/marthjod/bingo.svg?branch=master)](https://travis-ci.org/marthjod/bingo)
 
-[BÍN](http://bin.arnastofnun.is) parser/converter.
+[BÍN](http://bin.arnastofnun.is) AJAX parser/converter.
 
 ## Recognized inputs
 

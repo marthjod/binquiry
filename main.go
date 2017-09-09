@@ -21,14 +21,19 @@ func main() {
 	)
 	flag.Parse()
 
-	g := getter.Getter{UrlPrefix: *urlPrefix}
+	g := getter.Getter{URLPrefix: *urlPrefix}
 	resp, err := g.GetWord(*query)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-
-	defer resp.Body.Close()
+	defer func() {
+		err := resp.Body.Close()
+		if err != nil {
+			fmt.Println(err.Error())
+			os.Exit(1)
+		}
+	}()
 
 	header, wordType, xmlRoot, err := reader.Read(resp.Body)
 	if err != nil {
@@ -55,7 +60,7 @@ func main() {
 
 	switch *outputFormat {
 	case "json":
-		fmt.Println(word.Json())
+		fmt.Println(word.JSON())
 	case "list":
 		fmt.Println(word.List())
 	case "plain":

@@ -9,17 +9,20 @@ import (
 	"gopkg.in/xmlpath.v2"
 )
 
+// CaseForm represents a single case form, i.e. case name, number, and actual form.
 type CaseForm struct {
-	Name   case_.Case    `json:"name"`
+	Name   cases.Case    `json:"name"`
 	Number number.Number `json:"number"`
 	Form   string        `json:"form"`
 }
 
+// Noun is defined as a combination of a gender and a list of case forms.
 type Noun struct {
 	Gender    gender.Gender `json:"gender"`
 	CaseForms []CaseForm    `json:"cases"`
 }
 
+// ParseNoun parses XML input into a Noun struct.
 func ParseNoun(header string, iter *xmlpath.Iter) *Noun {
 	n := Noun{
 		Gender: gender.GetGender(header),
@@ -33,49 +36,49 @@ func ParseNoun(header string, iter *xmlpath.Iter) *Noun {
 		switch count {
 		case 1:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   case_.Nominative,
+				Name:   cases.Nominative,
 				Number: number.Singular,
 				Form:   node.String(),
 			})
 		case 2:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   case_.Accusative,
+				Name:   cases.Accusative,
 				Number: number.Singular,
 				Form:   node.String(),
 			})
 		case 3:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   case_.Dative,
+				Name:   cases.Dative,
 				Number: number.Singular,
 				Form:   node.String(),
 			})
 		case 4:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   case_.Genitive,
+				Name:   cases.Genitive,
 				Number: number.Singular,
 				Form:   node.String(),
 			})
 		case 5:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   case_.Nominative,
+				Name:   cases.Nominative,
 				Number: number.Plural,
 				Form:   node.String(),
 			})
 		case 6:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   case_.Accusative,
+				Name:   cases.Accusative,
 				Number: number.Plural,
 				Form:   node.String(),
 			})
 		case 7:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   case_.Dative,
+				Name:   cases.Dative,
 				Number: number.Plural,
 				Form:   node.String(),
 			})
 		case 8:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   case_.Genitive,
+				Name:   cases.Genitive,
 				Number: number.Plural,
 				Form:   node.String(),
 			})
@@ -86,7 +89,8 @@ func ParseNoun(header string, iter *xmlpath.Iter) *Noun {
 	return &n
 }
 
-func (n *Noun) Json() string {
+// JSON representation of a Noun.
+func (n *Noun) JSON() string {
 	j, err := json.MarshalIndent(n, "", "  ")
 	if err != nil {
 		return fmt.Sprintf(`{"error": "%s"}`, err.Error())
@@ -94,6 +98,7 @@ func (n *Noun) Json() string {
 	return string(j)
 }
 
+// List of a Noun's forms.
 func (n *Noun) List() []string {
 	l := []string{}
 	for _, c := range n.CaseForms {

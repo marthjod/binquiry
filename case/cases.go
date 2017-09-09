@@ -1,5 +1,6 @@
-package case_
+package cases
 
+// Case is an enum representing case names.
 type Case int
 
 //go:generate jsonenums -type=Case

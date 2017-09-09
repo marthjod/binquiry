@@ -6,24 +6,29 @@ import (
 	"net/url"
 )
 
+// Getter builds query URLs and HTTP requests against a data source.
 type Getter struct {
-	UrlPrefix string
+	URLPrefix string
 }
 
+// WordQuery builds a URL for querying a word.
 func (g *Getter) WordQuery(word string) (query string) {
 	v := url.Values{}
 	v.Set("q", word)
-	return g.UrlPrefix + "?" + v.Encode()
+	return g.URLPrefix + "?" + v.Encode()
 }
 
-func (g *Getter) IdQuery(id int) (query string) {
-	return fmt.Sprintf("%s?id=%d", g.UrlPrefix, id)
+// IDQuery builds a URL for querying a search ID.
+func (g *Getter) IDQuery(id int) (query string) {
+	return fmt.Sprintf("%s?id=%d", g.URLPrefix, id)
 }
 
+// GetWord makes an HTTP request for a word against the data source.
 func (g *Getter) GetWord(word string) (*http.Response, error) {
 	return http.Get(g.WordQuery(word))
 }
 
-func (g *Getter) GetId(id int) (*http.Response, error) {
-	return http.Get(g.IdQuery(id))
+// GetID makes an HTTP request for a search ID against the data source.
+func (g *Getter) GetID(id int) (*http.Response, error) {
+	return http.Get(g.IDQuery(id))
 }

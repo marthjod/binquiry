@@ -1,5 +1,6 @@
 package number
 
+// Number is an enum representing grammatical number.
 type Number int
 
 //go:generate jsonenums -type=Number

@@ -11,11 +11,13 @@ import (
 	"strings"
 )
 
+// GetHeader returns the raw header string from an XML snippet, if found.
 func GetHeader(root *xmlpath.Node) (header string, found bool) {
 	qHeader := xmlpath.MustCompile("/div/h2")
 	return qHeader.String(root)
 }
 
+// Read uses a Reader to determine header, word type, and the XML snippet for further parsing.
 func Read(r io.Reader) (header string, wordType wordtype.WordType, xmlRoot *xmlpath.Node, err error) {
 	body, err := ioutil.ReadAll(r)
 	if err != nil {

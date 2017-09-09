@@ -16,14 +16,14 @@ var (
 	noun = Noun{
 		Gender: gender.Masculine,
 		CaseForms: []CaseForm{
-			{Name: case_.Nominative, Number: number.Singular, Form: "penni"},
-			{Name: case_.Accusative, Number: number.Singular, Form: "penna"},
-			{Name: case_.Dative, Number: number.Singular, Form: "penna"},
-			{Name: case_.Genitive, Number: number.Singular, Form: "penna"},
-			{Name: case_.Nominative, Number: number.Plural, Form: "pennar"},
-			{Name: case_.Accusative, Number: number.Plural, Form: "penna"},
-			{Name: case_.Dative, Number: number.Plural, Form: "pennum"},
-			{Name: case_.Genitive, Number: number.Plural, Form: "penna"},
+			{Name: cases.Nominative, Number: number.Singular, Form: "penni"},
+			{Name: cases.Accusative, Number: number.Singular, Form: "penna"},
+			{Name: cases.Dative, Number: number.Singular, Form: "penna"},
+			{Name: cases.Genitive, Number: number.Singular, Form: "penna"},
+			{Name: cases.Nominative, Number: number.Plural, Form: "pennar"},
+			{Name: cases.Accusative, Number: number.Plural, Form: "penna"},
+			{Name: cases.Dative, Number: number.Plural, Form: "pennum"},
+			{Name: cases.Genitive, Number: number.Plural, Form: "penna"},
 		},
 	}
 )
@@ -75,7 +75,7 @@ func TestNoun_Json(t *testing.T) {
   ]
 }`
 
-	actual := noun.Json()
+	actual := noun.JSON()
 	if expected != actual {
 		t.Errorf("Expected: %v, actual: %v", expected, actual)
 	}
@@ -99,22 +99,22 @@ func TestNoun_List(t *testing.T) {
 	}
 }
 
-func ExampleNoun_Json() {
+func ExampleNoun_JSON() {
 
 	n := Noun{
 		Gender: gender.Masculine,
 		CaseForms: []CaseForm{
-			{Name: case_.Nominative, Number: number.Singular, Form: "penni"},
-			{Name: case_.Accusative, Number: number.Singular, Form: "penna"},
-			{Name: case_.Dative, Number: number.Singular, Form: "penna"},
-			{Name: case_.Genitive, Number: number.Singular, Form: "penna"},
-			{Name: case_.Nominative, Number: number.Plural, Form: "pennar"},
-			{Name: case_.Accusative, Number: number.Plural, Form: "penna"},
-			{Name: case_.Dative, Number: number.Plural, Form: "pennum"},
-			{Name: case_.Genitive, Number: number.Plural, Form: "penna"},
+			{Name: cases.Nominative, Number: number.Singular, Form: "penni"},
+			{Name: cases.Accusative, Number: number.Singular, Form: "penna"},
+			{Name: cases.Dative, Number: number.Singular, Form: "penna"},
+			{Name: cases.Genitive, Number: number.Singular, Form: "penna"},
+			{Name: cases.Nominative, Number: number.Plural, Form: "pennar"},
+			{Name: cases.Accusative, Number: number.Plural, Form: "penna"},
+			{Name: cases.Dative, Number: number.Plural, Form: "pennum"},
+			{Name: cases.Genitive, Number: number.Plural, Form: "penna"},
 		},
 	}
-	fmt.Println(n.Json())
+	fmt.Println(n.JSON())
 	// Output: {
 	//   "gender": "Masculine",
 	//   "cases": [
@@ -170,7 +170,7 @@ func TestParseNoun(t *testing.T) {
 	}
 	defer f.Close()
 
-	header, _, root, err := reader.Read(f)
+	header, _, root, _ := reader.Read(f)
 	path := xmlpath.MustCompile("//tr/td[2]")
 
 	actual := ParseNoun(header, path.Iter(root))
