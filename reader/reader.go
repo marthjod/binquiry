@@ -8,7 +8,6 @@ import (
 	"html"
 	"io"
 	"io/ioutil"
-	"strings"
 )
 
 // GetHeader returns the raw header string from an XML snippet, if found.
@@ -24,10 +23,7 @@ func Read(r io.Reader) (header string, wordType wordtype.WordType, xmlRoot *xmlp
 		return "", wordtype.Unknown, nil, err
 	}
 
-	buf := bytes.NewBuffer(body)
-	escaped := html.UnescapeString(buf.String())
-
-	root, err := xmlpath.Parse(strings.NewReader(escaped))
+	root, err := xmlpath.Parse(bytes.NewReader(Sanitize(body)))
 	if err != nil {
 		return "", wordtype.Unknown, nil, err
 	}
@@ -40,4 +36,8 @@ func Read(r io.Reader) (header string, wordType wordtype.WordType, xmlRoot *xmlp
 	wordType = wordtype.GetWordType(header)
 
 	return header, wordType, root, nil
+}
+
+func Sanitize(buf []byte) []byte {
+	return []byte(html.UnescapeString(bytes.NewBuffer(buf).String()))
 }
