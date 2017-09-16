@@ -38,6 +38,7 @@ func Read(r io.Reader) (header string, wordType wordtype.WordType, xmlRoot *xmlp
 	return header, wordType, root, nil
 }
 
+// Sanitize is a convenience wrapper for unescaping unclean HTML input.
 func Sanitize(buf []byte) []byte {
 	return []byte(html.UnescapeString(bytes.NewBuffer(buf).String()))
 }

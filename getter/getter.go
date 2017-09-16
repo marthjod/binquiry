@@ -52,13 +52,11 @@ func (g *Getter) GetWord(word string) (*http.Response, error) {
 
 	g.ResponseBodies = append(g.ResponseBodies, body)
 
-	addtlResponseData, err := g.Dispatch(body)
+	addtlResponseData, err := g.dispatch(body)
 	if err != nil {
 		return nil, err
 	}
-	for _, addtl := range addtlResponseData {
-		g.ResponseBodies = append(g.ResponseBodies, addtl)
-	}
+	g.ResponseBodies = append(g.ResponseBodies, addtlResponseData...)
 
 	return r, err
 }
@@ -70,7 +68,7 @@ func (g *Getter) GetID(id int) (*http.Response, error) {
 	return http.Get(query)
 }
 
-func (g *Getter) Dispatch(r []byte) (responseBodies [][]byte, err error) {
+func (g *Getter) dispatch(r []byte) (responseBodies [][]byte, err error) {
 	var reponseBodies = [][]byte{}
 
 	root, err := xmlpath.Parse(bytes.NewReader(r))

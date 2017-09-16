@@ -12,6 +12,7 @@ type Word interface {
 	List() []string
 }
 
+// Words is a list of Word types.
 type Words []Word
 
 // WordType is an enum representing word types.
@@ -42,6 +43,7 @@ func GetWordType(header string) WordType {
 	return Unknown
 }
 
+// JSON representation of Words.
 func (w *Words) JSON() string {
 	j, err := json.MarshalIndent(w, "", "  ")
 	if err != nil {
