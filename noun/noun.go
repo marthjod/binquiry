@@ -28,10 +28,7 @@ func ParseNoun(header string, iter *xmlpath.Iter) *Noun {
 		Gender: gender.GetGender(header),
 	}
 	count := 1
-	for {
-		if !iter.Next() {
-			break
-		}
+	for iter.Next() {
 		node := iter.Node()
 		switch count {
 		case 1:
