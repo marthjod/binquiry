@@ -1,6 +1,8 @@
 package wordtype
 
 import (
+	"encoding/json"
+	"fmt"
 	"strings"
 )
 
@@ -9,6 +11,8 @@ type Word interface {
 	JSON() string
 	List() []string
 }
+
+type Words []Word
 
 // WordType is an enum representing word types.
 type WordType int
@@ -36,4 +40,12 @@ func GetWordType(header string) WordType {
 	}
 
 	return Unknown
+}
+
+func (w *Words) JSON() string {
+	j, err := json.MarshalIndent(w, "", "  ")
+	if err != nil {
+		return fmt.Sprintf(`{"error": "%s"}`, err.Error())
+	}
+	return string(j)
 }
