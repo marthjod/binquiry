@@ -8,13 +8,14 @@
 ## Recognized inputs
 
 - [x] Unambiguous nouns in nominative singular
+- [x] Ambiguous nouns in nominative singular
 
 ## Examples
 
 ### JSON output
 
 ```bash
-./bingo -q orð -f json | jq '.cases[].form'
+./bingo -q orð -f json | jq '.[] | .cases[].form'
 ```
 
 yields
@@ -31,7 +32,7 @@ yields
 ```
 
 ```bash
-./bingo -q kona -f json | jq '.cases[] | select(.number == "Plural" and .name == "Accusative")'
+./bingo -q kona -f json | jq '.[] | .cases[] | select(.number == "Plural" and .name == "Accusative")'
 ```
 
 yields
@@ -44,12 +45,22 @@ yields
 }
 ```
 
+Ambiguous input fetches and returns all suggested paradigms.
+
+```bash
+./bingo -q ár | jq '. | length'
+3
+```
+
 ### List output
 
 
 ```bash
 ./bingo -q penni -f list
 [penni penna penna penna pennar penna pennum penna]
+./bingo -q maður -f list
+[maður mann manni manns menn menn mönnum manna]
+[Maður Mann Manni Manns -- -- -- --]
 ```
 
 ## Dependencies
