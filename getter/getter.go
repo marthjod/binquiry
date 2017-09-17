@@ -14,6 +14,7 @@ import (
 	"net/url"
 	"regexp"
 	"strconv"
+	"sync"
 )
 
 // Getter builds query URLs and HTTP requests against a data source.
@@ -49,14 +50,10 @@ func (g *Getter) GetWord(word string) (*http.Response, error) {
 	}
 
 	body := reader.Sanitize(b)
-
-	g.ResponseBodies = append(g.ResponseBodies, body)
-
-	addtlResponseData, err := g.dispatch(body)
+	err = g.dispatch(body)
 	if err != nil {
 		return nil, err
 	}
-	g.ResponseBodies = append(g.ResponseBodies, addtlResponseData...)
 
 	return r, err
 }
@@ -68,46 +65,69 @@ func (g *Getter) GetID(id int) (*http.Response, error) {
 	return http.Get(query)
 }
 
-func (g *Getter) dispatch(r []byte) (responseBodies [][]byte, err error) {
-	var reponseBodies = [][]byte{}
+func (g *Getter) fetchLink(link string, w *sync.WaitGroup) {
+	id, err := getSearchID(link)
+	if err != nil {
+		w.Done()
+		return
+	}
+
+	r, err := g.GetID(id)
+	if err != nil {
+		w.Done()
+		return
+	}
+
+	body, err := readSanitized(r.Body)
+	if err != nil {
+		w.Done()
+		return
+	}
+
+	g.ResponseBodies = append(g.ResponseBodies, body)
+	w.Done()
+}
+
+func (g *Getter) fetchLinks(links []string, w *sync.WaitGroup) {
+	for _, link := range links {
+		go g.fetchLink(link, w)
+	}
+}
+
+func (g *Getter) dispatch(r []byte) error {
+	var w sync.WaitGroup
 
 	root, err := xmlpath.Parse(bytes.NewReader(r))
 	if err != nil {
-		return [][]byte{}, err
+		return err
 	}
+
+	// did we land on a multiple-choice page?
 	qLinks := xmlpath.MustCompile("/ul/li/strong/a")
 	if qLinks.Exists(root) {
 		doc, err := html.Parse(bytes.NewReader(r))
 		if err != nil {
-			return [][]byte{}, err
+			return err
 		}
 
 		links := getLinkNodes(doc)
-		for _, link := range links {
-			id, err := getSearchID(link)
-			if err != nil {
-				return [][]byte{}, err
-			}
-			r, err := g.GetID(id)
-			if err != nil {
-				return [][]byte{}, err
-			}
+		w.Add(len(links))
+		g.fetchLinks(links, &w)
+		w.Wait()
 
-			body, err := readSanitized(r.Body)
-			if err != nil {
-				return [][]byte{}, err
-			}
-
-			reponseBodies = append(reponseBodies, body)
-		}
+		return nil
 	}
 
-	return reponseBodies, nil
+	// add original response body if we did not land on a multiple-choice page
+	g.ResponseBodies = append(g.ResponseBodies, r)
+
+	return nil
 }
 
 func getSearchID(val string) (int, error) {
+	var searchID = regexp.MustCompile(`leit_id\('(\d+)'\)`)
+
 	log.Debugf("obtaining search ID from %q", val)
-	searchID := regexp.MustCompile(`leit_id\('(\d+)'\)`)
 	groups := searchID.FindStringSubmatch(val)
 	if len(groups) > 1 {
 		return strconv.Atoi(groups[1])

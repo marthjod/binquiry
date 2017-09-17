@@ -43,12 +43,7 @@ func main() {
 		}
 	}()
 
-	log.Debugf("%d response(s) overall", len(g.ResponseBodies))
-
-	// discard first response if we have more than one (it contains no word data itself)
-	if len(g.ResponseBodies) > 1 {
-		g.ResponseBodies = g.ResponseBodies[1:]
-	}
+	log.Debugf("got %d relevant response(s)", len(g.ResponseBodies))
 
 	for _, resp := range g.ResponseBodies {
 		header, wordType, xmlRoot, err := reader.Read(bytes.NewReader(resp))
