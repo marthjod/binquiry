@@ -51,7 +51,7 @@ func (jc *JSONConverter) Convert(g *getter.Getter, query string) string {
 
 }
 
-// ConvertBytes implements the Converter interface.
+// ConvertBytes is a convenience wrapper for Convert to be used for http.ResponseWriter vel sim.
 func (jc *JSONConverter) ConvertBytes(g *getter.Getter, query string) []byte {
 	return []byte(jc.Convert(g, query))
 }
