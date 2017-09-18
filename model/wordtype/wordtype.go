@@ -1,6 +1,7 @@
 package wordtype
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"strings"
@@ -18,6 +19,7 @@ type Words []Word
 // WordType is an enum representing word types.
 type WordType int
 
+//go:generate jsonenums -type=WordType
 //go:generate stringer -type=WordType
 const (
 	Noun      WordType = iota
@@ -50,4 +52,15 @@ func (w *Words) JSON() string {
 		return fmt.Sprintf(`{"error": "%s"}`, err.Error())
 	}
 	return string(j)
+}
+
+// List representation of Words.
+func (w *Words) List() string {
+	var buffer bytes.Buffer
+
+	for _, word := range *w {
+		buffer.WriteString(fmt.Sprintf("%s\n", word.List()))
+	}
+
+	return buffer.String()
 }

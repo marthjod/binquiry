@@ -4,10 +4,6 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	log "github.com/Sirupsen/logrus"
-	"github.com/marthjod/bingo/reader"
-	"golang.org/x/net/html"
-	"gopkg.in/xmlpath.v2"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -15,6 +11,11 @@ import (
 	"regexp"
 	"strconv"
 	"sync"
+
+	log "github.com/Sirupsen/logrus"
+	"github.com/marthjod/bingo/reader"
+	"golang.org/x/net/html"
+	"gopkg.in/xmlpath.v2"
 )
 
 // Getter builds query URLs and HTTP requests against a data source.
@@ -36,26 +37,20 @@ func (g *Getter) IDQuery(id int) (query string) {
 }
 
 // GetWord makes an HTTP request for a word against the data source.
-func (g *Getter) GetWord(word string) (*http.Response, error) {
+func (g *Getter) GetWord(word string) error {
 	query := g.WordQuery(word)
 	log.Debug("query: ", query)
 	r, err := http.Get(query)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	b, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	body := reader.Sanitize(b)
-	err = g.dispatch(body)
-	if err != nil {
-		return nil, err
-	}
-
-	return r, err
+	return g.dispatch(reader.Sanitize(b))
 }
 
 // GetID makes an HTTP request for a search ID against the data source.

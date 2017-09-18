@@ -3,9 +3,9 @@ package noun
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/marthjod/bingo/case"
-	"github.com/marthjod/bingo/gender"
-	"github.com/marthjod/bingo/number"
+	"github.com/marthjod/bingo/model/case"
+	"github.com/marthjod/bingo/model/gender"
+	"github.com/marthjod/bingo/model/number"
 	"gopkg.in/xmlpath.v2"
 )
 

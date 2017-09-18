@@ -3,7 +3,7 @@ package reader
 import (
 	"bytes"
 	"errors"
-	"github.com/marthjod/bingo/wordtype"
+	"github.com/marthjod/bingo/model/wordtype"
 	"gopkg.in/xmlpath.v2"
 	"html"
 	"io"
