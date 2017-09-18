@@ -32,14 +32,14 @@ yields
 ```
 
 ```bash
-./bingo -q kona -f json | jq '.[] | .cases[] | select(.number == "Plural" and .name == "Accusative")'
+./bingo -q kona -f json | jq '.[] | .cases[] | select(.number == "Plural" and .case == "Accusative")'
 ```
 
 yields
 
 ```json
 {
-  "name": "Accusative",
+  "case": "Accusative",
   "number": "Plural",
   "form": "konur"
 }
@@ -48,7 +48,7 @@ yields
 Ambiguous input fetches and returns all suggested paradigms.
 
 ```bash
-./bingo -q ár | jq '. | length'
+$ ./bingo -q ár | jq '. | length'
 3
 ```
 
@@ -56,9 +56,9 @@ Ambiguous input fetches and returns all suggested paradigms.
 
 
 ```bash
-./bingo -q penni -f list
+$ ./bingo -q penni -f list
 [penni penna penna penna pennar penna pennum penna]
-./bingo -q maður -f list
+$ ./bingo -q maður -f list
 [maður mann manni manns menn menn mönnum manna]
 [Maður Mann Manni Manns -- -- -- --]
 ```
