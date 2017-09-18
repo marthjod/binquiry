@@ -38,9 +38,9 @@ func (lc *ListConverter) Convert(g *getter.Getter, query string) string {
 			word := noun.ParseNoun(header, path.Iter(xmlRoot))
 			words = append(words, word)
 		case wordtype.Adjective:
-			return fmt.Sprint("Adjective: ", errNotImplementedYet)
+			return fmt.Sprintf("%s: %s", wordtype.Adjective, errNotImplementedYet)
 		case wordtype.Verb:
-			return fmt.Sprint("Verb: ", errNotImplementedYet)
+			return fmt.Sprintf("%s: %s", wordtype.Verb, errNotImplementedYet)
 		default:
 			return errNotImplementedYet
 		}

@@ -18,7 +18,7 @@ type JSONConverter struct{}
 func (jc *JSONConverter) Convert(g *getter.Getter, query string) string {
 	var (
 		words                wordtype.Words
-		errNotImplementedYet = fmt.Sprintf(`{"error": "not implemented yet"}`)
+		errNotImplementedYet = "not implemented yet"
 	)
 
 	err := g.GetWord(query)
@@ -38,11 +38,11 @@ func (jc *JSONConverter) Convert(g *getter.Getter, query string) string {
 			word := noun.ParseNoun(header, path.Iter(xmlRoot))
 			words = append(words, word)
 		case wordtype.Adjective:
-			return errNotImplementedYet
+			return fmt.Sprintf(`{"error": "%s: %s"}`, wordtype.Adjective, errNotImplementedYet)
 		case wordtype.Verb:
-			return errNotImplementedYet
+			return fmt.Sprintf(`{"error": "%s: %s"}`, wordtype.Verb, errNotImplementedYet)
 		default:
-			return errNotImplementedYet
+			return fmt.Sprintf(`{"error": "%s"}`, errNotImplementedYet)
 		}
 
 	}
