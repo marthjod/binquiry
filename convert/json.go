@@ -50,3 +50,8 @@ func (jc *JSONConverter) Convert(g *getter.Getter, query string) string {
 	return words.JSON()
 
 }
+
+// ConvertBytes implements the Converter interface.
+func (jc *JSONConverter) ConvertBytes(g *getter.Getter, query string) []byte {
+	return []byte(jc.Convert(g, query))
+}
