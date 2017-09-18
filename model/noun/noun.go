@@ -11,7 +11,7 @@ import (
 
 // CaseForm represents a single case form, i.e. case name, number, and actual form.
 type CaseForm struct {
-	Name   cases.Case    `json:"name"`
+	Case   cases.Case    `json:"case"`
 	Number number.Number `json:"number"`
 	Form   string        `json:"form"`
 }
@@ -33,49 +33,49 @@ func ParseNoun(header string, iter *xmlpath.Iter) *Noun {
 		switch count {
 		case 1:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   cases.Nominative,
+				Case:   cases.Nominative,
 				Number: number.Singular,
 				Form:   node.String(),
 			})
 		case 2:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   cases.Accusative,
+				Case:   cases.Accusative,
 				Number: number.Singular,
 				Form:   node.String(),
 			})
 		case 3:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   cases.Dative,
+				Case:   cases.Dative,
 				Number: number.Singular,
 				Form:   node.String(),
 			})
 		case 4:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   cases.Genitive,
+				Case:   cases.Genitive,
 				Number: number.Singular,
 				Form:   node.String(),
 			})
 		case 5:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   cases.Nominative,
+				Case:   cases.Nominative,
 				Number: number.Plural,
 				Form:   node.String(),
 			})
 		case 6:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   cases.Accusative,
+				Case:   cases.Accusative,
 				Number: number.Plural,
 				Form:   node.String(),
 			})
 		case 7:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   cases.Dative,
+				Case:   cases.Dative,
 				Number: number.Plural,
 				Form:   node.String(),
 			})
 		case 8:
 			n.CaseForms = append(n.CaseForms, CaseForm{
-				Name:   cases.Genitive,
+				Case:   cases.Genitive,
 				Number: number.Plural,
 				Form:   node.String(),
 			})

@@ -16,14 +16,14 @@ var (
 	noun = Noun{
 		Gender: gender.Masculine,
 		CaseForms: []CaseForm{
-			{Name: cases.Nominative, Number: number.Singular, Form: "penni"},
-			{Name: cases.Accusative, Number: number.Singular, Form: "penna"},
-			{Name: cases.Dative, Number: number.Singular, Form: "penna"},
-			{Name: cases.Genitive, Number: number.Singular, Form: "penna"},
-			{Name: cases.Nominative, Number: number.Plural, Form: "pennar"},
-			{Name: cases.Accusative, Number: number.Plural, Form: "penna"},
-			{Name: cases.Dative, Number: number.Plural, Form: "pennum"},
-			{Name: cases.Genitive, Number: number.Plural, Form: "penna"},
+			{Case: cases.Nominative, Number: number.Singular, Form: "penni"},
+			{Case: cases.Accusative, Number: number.Singular, Form: "penna"},
+			{Case: cases.Dative, Number: number.Singular, Form: "penna"},
+			{Case: cases.Genitive, Number: number.Singular, Form: "penna"},
+			{Case: cases.Nominative, Number: number.Plural, Form: "pennar"},
+			{Case: cases.Accusative, Number: number.Plural, Form: "penna"},
+			{Case: cases.Dative, Number: number.Plural, Form: "pennum"},
+			{Case: cases.Genitive, Number: number.Plural, Form: "penna"},
 		},
 	}
 )
@@ -33,42 +33,42 @@ func TestNoun_Json(t *testing.T) {
   "gender": "Masculine",
   "cases": [
     {
-      "name": "Nominative",
+      "case": "Nominative",
       "number": "Singular",
       "form": "penni"
     },
     {
-      "name": "Accusative",
+      "case": "Accusative",
       "number": "Singular",
       "form": "penna"
     },
     {
-      "name": "Dative",
+      "case": "Dative",
       "number": "Singular",
       "form": "penna"
     },
     {
-      "name": "Genitive",
+      "case": "Genitive",
       "number": "Singular",
       "form": "penna"
     },
     {
-      "name": "Nominative",
+      "case": "Nominative",
       "number": "Plural",
       "form": "pennar"
     },
     {
-      "name": "Accusative",
+      "case": "Accusative",
       "number": "Plural",
       "form": "penna"
     },
     {
-      "name": "Dative",
+      "case": "Dative",
       "number": "Plural",
       "form": "pennum"
     },
     {
-      "name": "Genitive",
+      "case": "Genitive",
       "number": "Plural",
       "form": "penna"
     }
@@ -104,14 +104,14 @@ func ExampleNoun_JSON() {
 	n := Noun{
 		Gender: gender.Masculine,
 		CaseForms: []CaseForm{
-			{Name: cases.Nominative, Number: number.Singular, Form: "penni"},
-			{Name: cases.Accusative, Number: number.Singular, Form: "penna"},
-			{Name: cases.Dative, Number: number.Singular, Form: "penna"},
-			{Name: cases.Genitive, Number: number.Singular, Form: "penna"},
-			{Name: cases.Nominative, Number: number.Plural, Form: "pennar"},
-			{Name: cases.Accusative, Number: number.Plural, Form: "penna"},
-			{Name: cases.Dative, Number: number.Plural, Form: "pennum"},
-			{Name: cases.Genitive, Number: number.Plural, Form: "penna"},
+			{Case: cases.Nominative, Number: number.Singular, Form: "penni"},
+			{Case: cases.Accusative, Number: number.Singular, Form: "penna"},
+			{Case: cases.Dative, Number: number.Singular, Form: "penna"},
+			{Case: cases.Genitive, Number: number.Singular, Form: "penna"},
+			{Case: cases.Nominative, Number: number.Plural, Form: "pennar"},
+			{Case: cases.Accusative, Number: number.Plural, Form: "penna"},
+			{Case: cases.Dative, Number: number.Plural, Form: "pennum"},
+			{Case: cases.Genitive, Number: number.Plural, Form: "penna"},
 		},
 	}
 	fmt.Println(n.JSON())
@@ -119,42 +119,42 @@ func ExampleNoun_JSON() {
 	//   "gender": "Masculine",
 	//   "cases": [
 	//     {
-	//       "name": "Nominative",
+	//       "case": "Nominative",
 	//       "number": "Singular",
 	//       "form": "penni"
 	//     },
 	//     {
-	//       "name": "Accusative",
+	//       "case": "Accusative",
 	//       "number": "Singular",
 	//       "form": "penna"
 	//     },
 	//     {
-	//       "name": "Dative",
+	//       "case": "Dative",
 	//       "number": "Singular",
 	//       "form": "penna"
 	//     },
 	//     {
-	//       "name": "Genitive",
+	//       "case": "Genitive",
 	//       "number": "Singular",
 	//       "form": "penna"
 	//     },
 	//     {
-	//       "name": "Nominative",
+	//       "case": "Nominative",
 	//       "number": "Plural",
 	//       "form": "pennar"
 	//     },
 	//     {
-	//       "name": "Accusative",
+	//       "case": "Accusative",
 	//       "number": "Plural",
 	//       "form": "penna"
 	//     },
 	//     {
-	//       "name": "Dative",
+	//       "case": "Dative",
 	//       "number": "Plural",
 	//       "form": "pennum"
 	//     },
 	//     {
-	//       "name": "Genitive",
+	//       "case": "Genitive",
 	//       "number": "Plural",
 	//       "form": "penna"
 	//     }
