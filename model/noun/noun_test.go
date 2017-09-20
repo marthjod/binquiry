@@ -178,3 +178,15 @@ func TestParseNoun(t *testing.T) {
 		t.Errorf("Expected: %v,\nactual: %v", expected, actual)
 	}
 }
+
+func TestNoun_ParseTemplate(t *testing.T) {
+	expected := []byte(`Masculine gender, 8 forms`)
+
+	actual, err := noun.ParseTemplate("{{.Gender}} gender, {{.CaseForms | len }} forms")
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	if !reflect.DeepEqual(actual, expected) {
+		t.Errorf("Expected: %v,\nactual: %v", string(expected), string(actual))
+	}
+}

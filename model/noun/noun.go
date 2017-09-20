@@ -7,6 +7,8 @@ import (
 	"github.com/marthjod/bingo/model/gender"
 	"github.com/marthjod/bingo/model/number"
 	"gopkg.in/xmlpath.v2"
+	"text/template"
+	"bytes"
 )
 
 // CaseForm represents a single case form, i.e. case name, number, and actual form.
@@ -103,4 +105,17 @@ func (n *Noun) List() []string {
 	}
 
 	return l
+}
+
+// ParseTemplate returns a parsed template based on Noun fields.
+func (n *Noun) ParseTemplate(tpl string) ([]byte, error) {
+	var buf bytes.Buffer
+
+	tmpl, err := template.New("").Parse(tpl)
+	if err != nil {
+		return []byte{}, err
+	}
+
+	err = tmpl.Execute(&buf, n)
+	return buf.Bytes(), err
 }
