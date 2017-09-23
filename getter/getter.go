@@ -13,7 +13,7 @@ import (
 	"sync"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/marthjod/bingo/reader"
+	"github.com/marthjod/binquiry/reader"
 	"golang.org/x/net/html"
 	"gopkg.in/xmlpath.v2"
 )

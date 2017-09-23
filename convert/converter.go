@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/marthjod/bingo/getter"
-	"github.com/marthjod/bingo/model/noun"
-	"github.com/marthjod/bingo/model/wordtype"
-	"github.com/marthjod/bingo/reader"
+	"github.com/marthjod/binquiry/getter"
+	"github.com/marthjod/binquiry/model/noun"
+	"github.com/marthjod/binquiry/model/wordtype"
+	"github.com/marthjod/binquiry/reader"
 	"gopkg.in/xmlpath.v2"
 )
 

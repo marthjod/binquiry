@@ -3,10 +3,10 @@ package noun
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/marthjod/bingo/model/case"
-	"github.com/marthjod/bingo/model/gender"
-	"github.com/marthjod/bingo/model/number"
-	"github.com/marthjod/bingo/model/wordtype"
+	"github.com/marthjod/binquiry/model/case"
+	"github.com/marthjod/binquiry/model/gender"
+	"github.com/marthjod/binquiry/model/number"
+	"github.com/marthjod/binquiry/model/wordtype"
 	"gopkg.in/xmlpath.v2"
 )
 

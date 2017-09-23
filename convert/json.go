@@ -3,7 +3,7 @@ package convert
 import (
 	"fmt"
 
-	"github.com/marthjod/bingo/getter"
+	"github.com/marthjod/binquiry/getter"
 )
 
 // JSONConverter converts input to a JSON array containing the converted items in JSON format.

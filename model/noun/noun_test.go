@@ -2,10 +2,10 @@ package noun
 
 import (
 	"fmt"
-	"github.com/marthjod/bingo/model/case"
-	"github.com/marthjod/bingo/model/gender"
-	"github.com/marthjod/bingo/model/number"
-	"github.com/marthjod/bingo/reader"
+	"github.com/marthjod/binquiry/model/case"
+	"github.com/marthjod/binquiry/model/gender"
+	"github.com/marthjod/binquiry/model/number"
+	"github.com/marthjod/binquiry/reader"
 	"gopkg.in/xmlpath.v2"
 	"os"
 	"reflect"

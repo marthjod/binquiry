@@ -2,11 +2,11 @@ package convert
 
 import (
 	"errors"
-	"github.com/marthjod/bingo/model/case"
-	"github.com/marthjod/bingo/model/gender"
-	"github.com/marthjod/bingo/model/noun"
-	"github.com/marthjod/bingo/model/number"
-	"github.com/marthjod/bingo/model/wordtype"
+	"github.com/marthjod/binquiry/model/case"
+	"github.com/marthjod/binquiry/model/gender"
+	"github.com/marthjod/binquiry/model/noun"
+	"github.com/marthjod/binquiry/model/number"
+	"github.com/marthjod/binquiry/model/wordtype"
 	"io/ioutil"
 	"reflect"
 	"testing"
