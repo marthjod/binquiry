@@ -1,0 +1,74 @@
+
+
+
+
+
+<!-- <center> -->
+<div class="page-header"><h2>penni <small>Karlkynsnafnorð</small></h2></div>
+
+<div class="row-fluid">
+<div class="span6">
+    <table cellpadding="6" class="table table-hover">
+        <tr><th colspan="3" align="center">Eintala</th></tr>
+        <tr>
+        </tr>
+        <td width="10%"></td>
+        <td align="center" width="20%">án greinis</td>
+        <td align="center" width="20%">með greini</td>
+        <tr>
+            <td>Nf.</td>
+            <td><span class="VO_beygingarmynd">penni</span></td>
+            <td><span class="VO_beygingarmynd">penninn</span></td>
+        </tr>
+        <tr>
+            <td>Þf.</td>
+            <td><span class="VO_beygingarmynd">penna</span></td>
+            <td><span class="VO_beygingarmynd">pennann</span></td>
+        </tr>
+        <tr>
+            <td>Þgf.</td>
+            <td><span class="VO_beygingarmynd">penna</span></td>
+            <td><span class="VO_beygingarmynd">pennanum</span></td>
+        </tr>
+        <tr>
+            <td>Ef.</td>
+            <td><span class="VO_beygingarmynd">penna</span></td>
+            <td><span class="VO_beygingarmynd">pennans</span></td>
+        </tr>
+    </table>
+</div>
+<div class="span6">
+    <table cellpadding="6" class="table table-hover">
+        <tr><th colspan="3" align="center">Fleirtala</th></tr>
+        <tr>
+        </tr>
+        <td width="10%"></td>
+        <td align="center" width="20%">án greinis</td>
+        <td align="center" width="20%">með greini</td>
+        <tr>
+            <td>Nf.</td>
+            <td><span class="VO_beygingarmynd">pennar</span></td>
+            <td><span class="VO_beygingarmynd">pennarnir</span></td>
+        </tr>
+        <tr>
+            <td>Þf.</td>
+            <td><span class="VO_beygingarmynd">penna</span></td>
+            <td><span class="VO_beygingarmynd">pennana</span></td>
+        </tr>
+        <tr>
+            <td>Þgf.</td>
+            <td><span class="VO_beygingarmynd">pennum</span></td>
+            <td><span class="VO_beygingarmynd">pennunum</span></td>
+        </tr>
+        <tr>
+            <td>Ef.</td>
+            <td><span class="VO_beygingarmynd">penna</span></td>
+            <td><span class="VO_beygingarmynd">pennanna</span></td>
+        </tr>
+    </table>
+</div>
+</div>
+
+
+        <!-- </center> -->
+

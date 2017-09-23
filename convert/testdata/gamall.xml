@@ -1,0 +1,387 @@
+
+
+<!-- <center> -->
+<div class="page-header"><h2>gamall <small>Lýsingarorð</small></h2></div>
+
+<h3>Frumstig</h3>
+<div class="row-fluid">
+<div class="span12"><h4>Sterk beyging</h4></div>
+<div class="row-fluid">
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Eintala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">gamall</span></td>
+                <td><span class="VO_beygingarmynd">gömul</span></td>
+                <td><span class="VO_beygingarmynd">gamalt</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">gamlan</span></td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+                <td><span class="VO_beygingarmynd">gamalt</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">gömlum</span></td>
+                <td><span class="VO_beygingarmynd">gamalli</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">gamals</span></td>
+                <td><span class="VO_beygingarmynd">gamallar</span></td>
+                <td><span class="VO_beygingarmynd">gamals</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Fleirtala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">gamlir</span></td>
+                <td><span class="VO_beygingarmynd">gamlar</span></td>
+                <td><span class="VO_beygingarmynd">gömul</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+                <td><span class="VO_beygingarmynd">gamlar</span></td>
+                <td><span class="VO_beygingarmynd">gömul</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">gömlum</span></td>
+                <td><span class="VO_beygingarmynd">gömlum</span></td>
+                <td><span class="VO_beygingarmynd">gömlum</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">gamalla</span></td>
+                <td><span class="VO_beygingarmynd">gamalla</span></td>
+                <td><span class="VO_beygingarmynd">gamalla</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12"><h4>Veik beyging</h4></div>
+</div>
+<div class="row-fluid">
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Eintala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">gamli</span></td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gamla</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Fleirtala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+                <td><span class="VO_beygingarmynd">gömlu</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+<h3>Miðstig</h3>
+<div class="row-fluid">
+<div class="span12"><h4>Veik beyging</h4></div>
+<div class="row-fluid">
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Eintala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldra</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldra</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldra</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldra</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Fleirtala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+                <td><span class="VO_beygingarmynd">eldri</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+<h3>Efsta stig</h3>
+<div class="row-fluid">
+<div class="span12"><h4>Sterk beyging</h4></div>
+<div class="row-fluid">
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Eintala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">elstur</span></td>
+                <td><span class="VO_beygingarmynd">elst</span></td>
+                <td><span class="VO_beygingarmynd">elst</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">elstan</span></td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+                <td><span class="VO_beygingarmynd">elst</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">elstum</span></td>
+                <td><span class="VO_beygingarmynd">elstri</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">elsts</span></td>
+                <td><span class="VO_beygingarmynd">elstrar</span></td>
+                <td><span class="VO_beygingarmynd">elsts</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Fleirtala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">elstir</span></td>
+                <td><span class="VO_beygingarmynd">elstar</span></td>
+                <td><span class="VO_beygingarmynd">elst</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+                <td><span class="VO_beygingarmynd">elstar</span></td>
+                <td><span class="VO_beygingarmynd">elst</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">elstum</span></td>
+                <td><span class="VO_beygingarmynd">elstum</span></td>
+                <td><span class="VO_beygingarmynd">elstum</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">elstra</span></td>
+                <td><span class="VO_beygingarmynd">elstra</span></td>
+                <td><span class="VO_beygingarmynd">elstra</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12"><h4>Veik beyging</h4></div>
+</div>
+<div class="row-fluid">
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Eintala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">elsti</span></td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elsta</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="span6">
+        <table class="table table-hover">
+            <tr><th colspan="4">Fleirtala</th></tr>
+            <tr>
+                <td width="10%"></td>
+                <td width="30%">Karlkyn</td>
+                <td width="30%">Kvenkyn</td>
+                <td width="30%">Hvorugkyn</td>
+            </tr>
+            <tr>
+                <td>Nf.</td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+            </tr>
+            <tr>
+                <td>Þf.</td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+            </tr>
+            <tr>
+                <td>Þgf.</td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+            </tr>
+            <tr>
+                <td>Ef.</td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+                <td><span class="VO_beygingarmynd">elstu</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+
+
+        <!-- </center> -->
+

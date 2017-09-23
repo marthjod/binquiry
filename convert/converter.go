@@ -22,20 +22,30 @@ type BaseConverter struct{}
 
 // Convert converts query input to structs.
 func (bc *BaseConverter) Convert(g *getter.Getter, query string) (*wordtype.Words, error) {
-	var (
-		words                wordtype.Words
-		errNotImplementedYet = "not implemented yet"
-	)
+	var words wordtype.Words
 
 	responses, err := g.GetWord(query)
 	if err != nil {
 		return &words, err
 	}
 
-	for _, resp := range responses {
+	return convert(responses, g.WordQuery(query))
+}
+
+func convert(input [][]byte, origin string) (*wordtype.Words, error) {
+	var (
+		words                = wordtype.Words{}
+		errNotImplementedYet = "not implemented yet"
+	)
+
+	if len(input) == 0 {
+		return &words, fmt.Errorf("cannot convert empty input")
+	}
+
+	for _, resp := range input {
 		header, wordType, xmlRoot, err := reader.Read(bytes.NewReader(resp))
 		if err != nil {
-			return &words, fmt.Errorf("failed to parse response from %s: %s", g.WordQuery(query), err)
+			return &words, fmt.Errorf("failed to parse input from %s: %s", origin, err)
 		}
 
 		switch wordType {
