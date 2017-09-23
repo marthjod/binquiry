@@ -55,17 +55,6 @@ $ ./bingo -q ár | jq '. | length'
 3
 ```
 
-### List output
-
-
-```bash
-$ ./bingo -q penni -f list
-[penni penna penna penna pennar penna pennum penna]
-$ ./bingo -q maður -f list
-[maður mann manni manns menn menn mönnum manna]
-[Maður Mann Manni Manns -- -- -- --]
-```
-
 ## Dependencies
 
 - https://github.com/go-xmlpath/xmlpath
