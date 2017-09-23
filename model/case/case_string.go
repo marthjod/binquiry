@@ -4,9 +4,9 @@ package cases
 
 import "fmt"
 
-const _Case_name = "NominativeAccusativeDativeGenitive"
+const _Case_name = "NominativeAccusativeDativeGenitiveUnknown"
 
-var _Case_index = [...]uint8{0, 10, 20, 26, 34}
+var _Case_index = [...]uint8{0, 10, 20, 26, 34, 41}
 
 func (i Case) String() string {
 	if i < 0 || i >= Case(len(_Case_index)-1) {

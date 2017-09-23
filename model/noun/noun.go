@@ -30,10 +30,10 @@ func ParseNoun(header string, iter *xmlpath.Iter) *Noun {
 		Type:   wordtype.Noun,
 		Gender: gender.GetGender(header),
 	}
-	count := 1
+	counter := 1
 	for iter.Next() {
 		node := iter.Node()
-		switch count {
+		switch counter {
 		case 1:
 			n.CaseForms = append(n.CaseForms, CaseForm{
 				Case:   cases.Nominative,
@@ -83,7 +83,7 @@ func ParseNoun(header string, iter *xmlpath.Iter) *Noun {
 				Form:   node.String(),
 			})
 		}
-		count++
+		counter++
 	}
 
 	return &n

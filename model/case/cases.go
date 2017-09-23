@@ -10,4 +10,5 @@ const (
 	Accusative Case = iota
 	Dative     Case = iota
 	Genitive   Case = iota
+	Unknown    Case = iota
 )

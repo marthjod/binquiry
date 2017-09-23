@@ -11,6 +11,7 @@ Also see [binquiry-web](https://github.com/marthjod/binquiry-web).
 
 - [x] Unambiguous nouns in nominative singular
 - [x] Ambiguous nouns in nominative singular
+- [x] (experimental) Unambiguous adjectives in nominative singular
 
 ## Examples
 

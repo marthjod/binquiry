@@ -13,6 +13,7 @@ var (
 		"Accusative": Accusative,
 		"Dative":     Dative,
 		"Genitive":   Genitive,
+		"Unknown":    Unknown,
 	}
 
 	_CaseValueToName = map[Case]string{
@@ -20,6 +21,7 @@ var (
 		Accusative: "Accusative",
 		Dative:     "Dative",
 		Genitive:   "Genitive",
+		Unknown:    "Unknown",
 	}
 )
 
@@ -31,6 +33,7 @@ func init() {
 			interface{}(Accusative).(fmt.Stringer).String(): Accusative,
 			interface{}(Dative).(fmt.Stringer).String():     Dative,
 			interface{}(Genitive).(fmt.Stringer).String():   Genitive,
+			interface{}(Unknown).(fmt.Stringer).String():    Unknown,
 		}
 	}
 }

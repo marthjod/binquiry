@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/marthjod/binquiry/getter"
+	"github.com/marthjod/binquiry/model/adjective"
 	"github.com/marthjod/binquiry/model/noun"
 	"github.com/marthjod/binquiry/model/wordtype"
 	"github.com/marthjod/binquiry/reader"
@@ -54,7 +55,9 @@ func convert(input [][]byte, origin string) (*wordtype.Words, error) {
 			word := noun.ParseNoun(header, path.Iter(xmlRoot))
 			words = append(words, word)
 		case wordtype.Adjective:
-			return &words, fmt.Errorf("%s: %s", wordtype.Adjective, errNotImplementedYet)
+			path := xmlpath.MustCompile("//tr/td/span")
+			word := adjective.ParseAdjective(path.Iter(xmlRoot))
+			words = append(words, word)
 		case wordtype.Verb:
 			return &words, fmt.Errorf("%s: %s", wordtype.Verb, errNotImplementedYet)
 		default:

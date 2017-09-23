@@ -11,9 +11,9 @@ import (
 func main() {
 
 	var (
-		converter    convert.Converter
-		query        = flag.String("q", "orð", "Word to query.")
-		urlPrefix    = flag.String("url-prefix", "http://dev.phpbin.ja.is/ajax_leit.php", "Query URL prefix.")
+		converter convert.Converter
+		query     = flag.String("q", "orð", "Word to query.")
+		urlPrefix = flag.String("url-prefix", "http://dev.phpbin.ja.is/ajax_leit.php", "Query URL prefix.")
 	)
 
 	flag.Parse()
