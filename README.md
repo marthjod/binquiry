@@ -18,7 +18,7 @@ Also see [binquiry-web](https://github.com/marthjod/binquiry-web).
 ### JSON output
 
 ```bash
-./bingo -q orð -f json | jq '.[] | .cases[].form'
+./binquiry | jq '.[] | .cases[].form'
 ```
 
 yields
@@ -35,7 +35,13 @@ yields
 ```
 
 ```bash
-./bingo -q kona -f json | jq '.[] | .cases[] | select(.number == "Plural" and .case == "Accusative")'
+./binquiry -q kona | \
+jq '.[]
+    | .cases[]
+    | select(
+        .number == "Plural" and
+        .case == "Accusative"
+    )'
 ```
 
 yields
@@ -48,10 +54,32 @@ yields
 }
 ```
 
+```bash
+./binquiry -q gamall | \
+jq '.[]
+    | .cases[]
+    | select(
+        .gender == "Neuter" and
+        .declension == "Weak" and
+        .number == "Plural" and
+        .degree == "Superlative"
+    )
+    | .form'
+```
+
+yields
+
+```json
+"elstu"
+"elstu"
+"elstu"
+"elstu"
+```
+
 Ambiguous input fetches and returns all suggested paradigms.
 
 ```bash
-$ ./bingo -q ár | jq '. | length'
+$ ./binquiry -q ár | jq '. | length'
 3
 ```
 
