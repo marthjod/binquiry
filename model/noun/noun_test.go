@@ -82,23 +82,6 @@ func TestNoun_Json(t *testing.T) {
 
 }
 
-func TestNoun_List(t *testing.T) {
-	expected := []string{
-		"penni",
-		"penna",
-		"penna",
-		"penna",
-		"pennar",
-		"penna",
-		"pennum",
-		"penna",
-	}
-	actual := noun.List()
-	if !reflect.DeepEqual(expected, actual) {
-		t.Errorf("Expected: %v, actual: %v", expected, actual)
-	}
-}
-
 func ExampleNoun_JSON() {
 
 	n := Noun{
@@ -178,3 +161,4 @@ func TestParseNoun(t *testing.T) {
 		t.Errorf("Expected: %v,\nactual: %v", expected, actual)
 	}
 }
+

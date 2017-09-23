@@ -10,7 +10,6 @@ import (
 // Word represents features every word type must exhibit.
 type Word interface {
 	JSON() string
-	List() []string
 }
 
 // Words is a list of Word types.
@@ -52,15 +51,4 @@ func (w *Words) JSON() string {
 		return fmt.Sprintf(`{"error": "%s"}`, err.Error())
 	}
 	return string(j)
-}
-
-// List representation of Words.
-func (w *Words) List() string {
-	var buffer bytes.Buffer
-
-	for _, word := range *w {
-		buffer.WriteString(fmt.Sprintf("%s\n", word.List()))
-	}
-
-	return buffer.String()
 }

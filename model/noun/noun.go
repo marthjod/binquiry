@@ -94,13 +94,3 @@ func (n *Noun) JSON() string {
 	}
 	return string(j)
 }
-
-// List of a Noun's forms.
-func (n *Noun) List() []string {
-	l := []string{}
-	for _, c := range n.CaseForms {
-		l = append(l, c.Form)
-	}
-
-	return l
-}
