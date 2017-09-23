@@ -5,6 +5,8 @@
 
 [BÍN](http://bin.arnastofnun.is) "AJAX" parser/converter.
 
+Also see [binquiry-web](https://github.com/marthjod/binquiry-web).
+
 ## Recognized inputs
 
 - [x] Unambiguous nouns in nominative singular
