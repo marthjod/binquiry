@@ -1,7 +1,6 @@
 package wordtype
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"strings"
