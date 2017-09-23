@@ -27,12 +27,12 @@ func (bc *BaseConverter) Convert(g *getter.Getter, query string) (*wordtype.Word
 		errNotImplementedYet = "not implemented yet"
 	)
 
-	err := g.GetWord(query)
+	responses, err := g.GetWord(query)
 	if err != nil {
 		return &words, err
 	}
 
-	for _, resp := range g.ResponseBodies {
+	for _, resp := range responses {
 		header, wordType, xmlRoot, err := reader.Read(bytes.NewReader(resp))
 		if err != nil {
 			return &words, fmt.Errorf("failed to parse response from %s: %s", g.WordQuery(query), err)

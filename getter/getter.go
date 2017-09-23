@@ -21,7 +21,7 @@ import (
 // Getter builds query URLs and HTTP requests against a data source.
 type Getter struct {
 	URLPrefix      string
-	ResponseBodies [][]byte
+	responseBodies [][]byte
 }
 
 // WordQuery builds a URL for querying a word.
@@ -37,17 +37,17 @@ func (g *Getter) IDQuery(id int) (query string) {
 }
 
 // GetWord makes an HTTP request for a word against the data source.
-func (g *Getter) GetWord(word string) error {
+func (g *Getter) GetWord(word string) (responses [][]byte, err error) {
 	query := g.WordQuery(word)
 	log.Debug("query: ", query)
 	r, err := http.Get(query)
 	if err != nil {
-		return err
+		return
 	}
 
 	b, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		return err
+		return
 	}
 
 	return g.dispatch(reader.Sanitize(b))
@@ -79,7 +79,7 @@ func (g *Getter) fetchLink(link string, w *sync.WaitGroup) {
 		return
 	}
 
-	g.ResponseBodies = append(g.ResponseBodies, body)
+	g.responseBodies = append(g.responseBodies, body)
 	w.Done()
 }
 
@@ -89,12 +89,12 @@ func (g *Getter) fetchLinks(links []string, w *sync.WaitGroup) {
 	}
 }
 
-func (g *Getter) dispatch(r []byte) error {
+func (g *Getter) dispatch(r []byte) (responses [][]byte, err error) {
 	var w sync.WaitGroup
 
 	root, err := xmlpath.Parse(bytes.NewReader(r))
 	if err != nil {
-		return err
+		return
 	}
 
 	// did we land on a multiple-choice page?
@@ -102,7 +102,7 @@ func (g *Getter) dispatch(r []byte) error {
 	if qLinks.Exists(root) {
 		doc, err := html.Parse(bytes.NewReader(r))
 		if err != nil {
-			return err
+			return [][]byte{}, err
 		}
 
 		links := getLinkNodes(doc)
@@ -110,19 +110,17 @@ func (g *Getter) dispatch(r []byte) error {
 		g.fetchLinks(links, &w)
 		w.Wait()
 
-		return nil
+		return g.responseBodies, nil
 	}
 
 	// add original response body if we did not land on a multiple-choice page
-	g.ResponseBodies = append(g.ResponseBodies, r)
+	g.responseBodies = append(g.responseBodies, r)
 
-	return nil
+	return g.responseBodies, nil
 }
 
 func getSearchID(val string) (int, error) {
 	var searchID = regexp.MustCompile(`leit_id\('(\d+)'\)`)
-
-	log.Debugf("obtaining search ID from %q", val)
 	groups := searchID.FindStringSubmatch(val)
 	if len(groups) > 1 {
 		return strconv.Atoi(groups[1])
