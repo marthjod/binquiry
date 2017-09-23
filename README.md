@@ -1,9 +1,9 @@
-# bingo
+# binquiry
 
 
-[![Travis CI Build Status](https://travis-ci.org/marthjod/bingo.svg?branch=master)](https://travis-ci.org/marthjod/bingo)
+[![Travis CI Build Status](https://travis-ci.org/marthjod/binquiry.svg?branch=master)](https://travis-ci.org/marthjod/binquiry)
 
-[BÍN](http://bin.arnastofnun.is) AJAX parser/converter.
+[BÍN](http://bin.arnastofnun.is) "AJAX" parser/converter.
 
 ## Recognized inputs
 
