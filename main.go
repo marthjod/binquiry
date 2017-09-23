@@ -15,7 +15,7 @@ func main() {
 		converter    convert.Converter
 		query        = flag.String("q", "orð", "Word to query.")
 		urlPrefix    = flag.String("url-prefix", "http://dev.phpbin.ja.is/ajax_leit.php", "Query URL prefix.")
-		outputFormat = flag.String("f", "list", "Output format (json|list|plain).")
+		outputFormat = flag.String("f", "list", "Output format (json|list).")
 	)
 
 	flag.Parse()
