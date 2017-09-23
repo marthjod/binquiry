@@ -30,6 +30,7 @@ var (
 
 func TestNoun_Json(t *testing.T) {
 	expected := `{
+  "type": "Noun",
   "gender": "Masculine",
   "cases": [
     {
@@ -99,6 +100,7 @@ func ExampleNoun_JSON() {
 	}
 	fmt.Println(n.JSON())
 	// Output: {
+	//   "type": "Noun",
 	//   "gender": "Masculine",
 	//   "cases": [
 	//     {
@@ -161,4 +163,3 @@ func TestParseNoun(t *testing.T) {
 		t.Errorf("Expected: %v,\nactual: %v", expected, actual)
 	}
 }
-

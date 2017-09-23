@@ -6,6 +6,7 @@ import (
 	"github.com/marthjod/bingo/model/case"
 	"github.com/marthjod/bingo/model/gender"
 	"github.com/marthjod/bingo/model/number"
+	"github.com/marthjod/bingo/model/wordtype"
 	"gopkg.in/xmlpath.v2"
 )
 
@@ -18,13 +19,15 @@ type CaseForm struct {
 
 // Noun is defined as a combination of a gender and a list of case forms.
 type Noun struct {
-	Gender    gender.Gender `json:"gender"`
-	CaseForms []CaseForm    `json:"cases"`
+	Type      wordtype.WordType `json:"type"`
+	Gender    gender.Gender     `json:"gender"`
+	CaseForms []CaseForm        `json:"cases"`
 }
 
 // ParseNoun parses XML input into a Noun struct.
 func ParseNoun(header string, iter *xmlpath.Iter) *Noun {
 	n := Noun{
+		Type:   wordtype.Noun,
 		Gender: gender.GetGender(header),
 	}
 	count := 1
